@@ -1,0 +1,4 @@
+<design:component label="Formatter Mobille">
+    <design:attribute name="recordId" label="Record ID" />
+    <design:attribute name="mobile" label="mobile" />
+</design:component>

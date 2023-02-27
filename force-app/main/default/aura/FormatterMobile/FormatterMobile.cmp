@@ -1,0 +1,9 @@
+<aura:component implements="lightning:availableForFlowScreens,lightning:availableForFlowActions,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="mobile" type="String"  access="global"/>
+	<aura:attribute name="recordId" type="String"  access="global"/>
+	<span><abbr style="border: none" title="obrigatório" class="slds-required ">*</abbr>Celular</span>
+    <div style="box">
+                  <input type="text" aura:id="celularInput" onkeypress="{! c.verifyPhone }" onkeyup="{!c.keypfunc}" onchange="{! c.endCellPhone }" id="celularInput" placeholder="" required="" value="{!v.mobile}" class="slds-input input-modal" />        
+    </div>
+    
+</aura:component>

@@ -1,0 +1,31 @@
+<apex:page standardController="Lead" > 
+
+<apex:form >
+    <div style="visibility:hidden;">
+    </div>
+
+<apex:actionFunction name="quickSave" action="{!quickSave}" oncomplete="standardConvert();"/>
+    <apex:actionFunction name="standardConvert"
+      action="{!URLFOR($Action.Lead.Convert, lead.id, [retURL=$CurrentPage.parameters.retURL], true)}" oncomplete="return false;"/>
+
+<script language="JavaScript">
+
+    // When the page finishes loading, do the default window.onload action,
+    // then call our fixLead() function.
+    var previousOnload = window.onload;
+    window.onload = function() {
+        if (previousOnload) previousOnload();
+        fixLead();
+    }
+
+    // Edit the Lead to set the Cancel Workflow flag.
+    // When quickSave() finishes, it will redirect to the default Convert action.
+    function fixLead() {
+        var elemCancelWorkflow = document.getElementById('{!$Component.cancelWorkflow}');
+        elemCancelWorkflow.checked = true;
+        quickSave();
+    }
+
+</script>
+</apex:form>
+</apex:page>

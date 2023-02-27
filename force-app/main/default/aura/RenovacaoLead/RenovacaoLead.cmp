@@ -1,0 +1,10 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:hasPageReference,flexipage:availableForAllPageTypes"  access="global" >
+        <aura:attribute name="record" type="Lead" />
+    <aura:attribute name="recordId" type="String" />
+<force:recordData aura:id="recordLoader" recordId="{!v.recordId}"
+                      targetFields="{!v.record}"
+                      fields="Id"
+                      recordUpdated="{!c.handleClick}" />
+	    <lightning:flow aura:id="flowId" />
+
+</aura:component>
